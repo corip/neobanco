@@ -43,8 +43,31 @@ export class CardRequestEntity {
   })
   retries!: number;
 
+  @Column()
+  fullName!: string;
+  
   @Column({
     nullable: true,
   })
   errorReason?: string;
+
+  @Column({
+    nullable: true,
+  })
+  cardId?: string;
+
+  @Column({
+    nullable: true,
+  })
+  cardNumber?: string;
+
+  @Column({
+    nullable: true,
+  })
+  expirationDate?: string;
+
+  @Column({
+    nullable: true,
+  })
+  cvv?: string;
 }

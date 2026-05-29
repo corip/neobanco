@@ -5,4 +5,5 @@ export declare class CardsRepository {
     constructor(repository: Repository<CardRequestEntity>);
     findByRequestId(requestId: string): Promise<CardRequestEntity | null>;
     updateStatus(requestId: string, status: string, retries: number, errorReason?: string): Promise<void>;
+    issueCard(requestId: string, cardData: any): Promise<void>;
 }

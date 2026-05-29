@@ -43,6 +43,9 @@ export class CardRequestEntity {
   })
   retries!: number;
 
+  @Column()
+  fullName!: string;
+
   @Column({
     nullable: true,
   })

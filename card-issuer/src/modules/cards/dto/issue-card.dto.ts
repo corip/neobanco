@@ -1,54 +1,27 @@
 import {
-  IsEmail,
-  IsEnum,
-  IsInt,
-  IsString,
-  Length,
-  Min,
-  IsOptional,
-  IsBoolean
+  IsBoolean,
+  ValidateNested,
 } from 'class-validator';
 
-import { ApiProperty } from '@nestjs/swagger';
+import { Type }
+from 'class-transformer';
+
+import { CustomerDto }
+from './customer.dto';
+
+import { ProductDto }
+from './product.dto';
 
 export class IssueCardDto {
 
-  @ApiProperty()
-  @IsString()
-  @Length(8, 8)
-  documentNumber!: string;
+  @ValidateNested()
+  @Type(() => CustomerDto)
+  customer!: CustomerDto;
 
-  @ApiProperty({
-    example: 'DNI',
-  })
-  @IsEnum(['DNI'])
-  documentType!: string;
+  @ValidateNested()
+  @Type(() => ProductDto)
+  product!: ProductDto;
 
-  @ApiProperty()
-  @IsEmail()
-  email!: string;
-
-  @ApiProperty()
-  @IsInt()
-  @Min(18)
-  age!: number;
-
-  @ApiProperty({
-    example: 'VISA',
-  })
-  @IsEnum(['VISA'])
-  type!: string;
-
-  @ApiProperty({
-    example: 'PEN',
-  })
-  @IsEnum(['PEN', 'USD'])
-  currency!: string;
-
-  @ApiProperty({
-    required: false,
-  })
-  @IsOptional()
-@IsBoolean()
-  forceFail?: boolean;
+  @IsBoolean()
+  forceError!: boolean;
 }

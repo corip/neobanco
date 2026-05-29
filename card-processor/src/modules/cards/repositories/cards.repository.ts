@@ -38,4 +38,28 @@ export class CardsRepository {
             },
         );
     }
+
+    async issueCard(requestId: string,cardData: any,) {
+
+  await this.repository.update(
+    {
+      requestId,
+    },
+    {
+      status: 'ISSUED',
+
+      cardId:
+        cardData.cardId,
+
+      cardNumber:
+        cardData.cardNumber,
+
+      expirationDate:
+        cardData.expirationDate,
+
+      cvv:
+        cardData.cvv,
+    },
+  );
+}
 }

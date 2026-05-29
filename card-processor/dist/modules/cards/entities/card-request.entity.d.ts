@@ -9,5 +9,10 @@ export declare class CardRequestEntity {
     currency: string;
     status: string;
     retries: number;
+    fullName: string;
     errorReason?: string;
+    cardId?: string;
+    cardNumber?: string;
+    expirationDate?: string;
+    cvv?: string;
 }

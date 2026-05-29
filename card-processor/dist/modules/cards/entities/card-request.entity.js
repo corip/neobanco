@@ -22,7 +22,12 @@ let CardRequestEntity = class CardRequestEntity {
     currency;
     status;
     retries;
+    fullName;
     errorReason;
+    cardId;
+    cardNumber;
+    expirationDate;
+    cvv;
 };
 exports.CardRequestEntity = CardRequestEntity;
 __decorate([
@@ -72,11 +77,39 @@ __decorate([
     __metadata("design:type", Number)
 ], CardRequestEntity.prototype, "retries", void 0);
 __decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], CardRequestEntity.prototype, "fullName", void 0);
+__decorate([
     (0, typeorm_1.Column)({
         nullable: true,
     }),
     __metadata("design:type", String)
 ], CardRequestEntity.prototype, "errorReason", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], CardRequestEntity.prototype, "cardId", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], CardRequestEntity.prototype, "cardNumber", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], CardRequestEntity.prototype, "expirationDate", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: true,
+    }),
+    __metadata("design:type", String)
+], CardRequestEntity.prototype, "cvv", void 0);
 exports.CardRequestEntity = CardRequestEntity = __decorate([
     (0, typeorm_1.Entity)('card_requests')
 ], CardRequestEntity);

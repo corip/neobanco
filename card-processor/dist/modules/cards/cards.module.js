@@ -12,12 +12,15 @@ const typeorm_1 = require("@nestjs/typeorm");
 const card_request_entity_1 = require("./entities/card-request.entity");
 const cards_repository_1 = require("./repositories/cards.repository");
 const card_requested_consumer_1 = require("./consumers/card-requested.consumer");
+const card_processor_service_1 = require("./services/card-processor.service");
+const kafka_module_1 = require("../../commons/kafka/kafka.module");
 let CardsModule = class CardsModule {
 };
 exports.CardsModule = CardsModule;
 exports.CardsModule = CardsModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            kafka_module_1.KafkaModule,
             typeorm_1.TypeOrmModule.forFeature([
                 card_request_entity_1.CardRequestEntity,
             ]),
@@ -25,6 +28,7 @@ exports.CardsModule = CardsModule = __decorate([
         providers: [
             cards_repository_1.CardsRepository,
             card_requested_consumer_1.CardRequestedConsumer,
+            card_processor_service_1.CardProcessorService,
         ],
     })
 ], CardsModule);
