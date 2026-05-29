@@ -79,4 +79,9 @@ Luego del tercer fallo:
 
 ## Arquitectura local
 
-![Diagrama](./diagramas/diagrama:local.jpg)
+![Diagrama](./diagramas/diagrama_local.jpg)
+
+
+## Arquitectura AWS
+
+![Diagrama](./diagramas/diagrama_local-TOBE.jpg)

@@ -8,8 +8,8 @@ import { CardsRepository } from '../repositories/cards.repository';
 
 import { Kafka } from 'kafkajs';
 import { CardProcessorService } from '../services/card-processor.service';
-import { KafkaService } from 'src/commons/kafka/kafka.service';
-import { KAFKA_TOPICS } from 'src/commons/kafka/topics';
+import { KafkaService } from '../../../commons/kafka/kafka.service'
+import { KAFKA_TOPICS } from '../../../commons/kafka/topics';
 
 @Injectable()
 export class CardRequestedConsumer implements OnModuleInit {
