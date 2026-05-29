@@ -56,19 +56,19 @@ Ejemplo de body para /cards/issue:
 ```
 ## Conexión a BD
 Parametros de conexión para la bd
-host:localhost
-Port: 5433
-user: admin
-password: admin
-database: cardsdb
+- host:localhost
+- Port: 5433
+- user: admin
+- password: admin
+- database: cardsdb
 
 ## Estrategia de reintentos
 
 El consumidor implementa una estrategia de reintentos exponenciales:
 
-- Retry 1 → 1 segundo
-- Retry 2 → 2 segundos
-- Retry 3 → 4 segundos
+- Retry 1: 1 segundo
+- Retry 2: 2 segundos
+- Retry 3: 4 segundos
 
 Luego del tercer fallo:
 
