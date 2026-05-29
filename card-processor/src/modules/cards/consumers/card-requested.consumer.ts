@@ -99,6 +99,39 @@ export class CardRequestedConsumer implements OnModuleInit {
                                 cardData,
                             );
 
+                        await this.kafkaService.publish(
+
+                            KAFKA_TOPICS.CARD_ISSUED,
+
+                            {
+
+                                id: Date.now(),
+
+                                source: event.source,
+
+                                specversion: '1.0',
+
+                                type:
+                                    KAFKA_TOPICS.CARD_ISSUED,
+
+                                time:
+                                    new Date().toISOString(),
+
+                                datacontenttype:
+                                    'application/json',
+
+                                data: {
+
+                                    requestId:
+                                        event.source,
+
+                                    status:
+                                        'ISSUED',
+
+                                    card: cardData,
+                                },
+                            },
+                        );
                         this.logger.log(
                             `Card issued successfully for ${event.source}`,
                         );
@@ -184,8 +217,7 @@ export class CardRequestedConsumer implements OnModuleInit {
             4000,
         ];
 
-        const delay =
-            delays[retry - 1];
+        const delay = delays[retry - 1];
 
         return new Promise(
             (resolve) =>

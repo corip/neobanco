@@ -59,6 +59,19 @@ let CardRequestedConsumer = CardRequestedConsumer_1 = class CardRequestedConsume
                             .processCard(event);
                         await this.cardsRepository
                             .issueCard(event.source, cardData);
+                        await this.kafkaService.publish(topics_1.KAFKA_TOPICS.CARD_ISSUED, {
+                            id: Date.now(),
+                            source: event.source,
+                            specversion: '1.0',
+                            type: topics_1.KAFKA_TOPICS.CARD_ISSUED,
+                            time: new Date().toISOString(),
+                            datacontenttype: 'application/json',
+                            data: {
+                                requestId: event.source,
+                                status: 'ISSUED',
+                                card: cardData,
+                            },
+                        });
                         this.logger.log(`Card issued successfully for ${event.source}`);
                         success = true;
                     }
