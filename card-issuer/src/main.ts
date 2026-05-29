@@ -38,12 +38,9 @@ async function bootstrap() {
     app,
     document,
   );
+  await app.listen(3001);
 
-  await app.listen(3000);
-
-  console.log(
-    `Application running on port 3000`,
-  );
+  console.log(`Application running on port 3001`,);
 }
 
 bootstrap();

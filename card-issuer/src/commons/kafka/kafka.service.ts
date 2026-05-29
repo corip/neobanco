@@ -19,9 +19,7 @@ implements OnModuleInit {
 
   constructor() {
 
-    console.log(
-      'Initializing Kafka...',
-    );
+    console.log('Initializing Kafka...',);
 
     this.kafka = new Kafka({
       clientId: 'card-issuer',
@@ -37,25 +35,16 @@ implements OnModuleInit {
 
   async onModuleInit() {
 
-    console.log(
-      'Connecting producer...',
-    );
+    console.log('Connecting producer...',);
 
     await this.producer.connect();
 
-    console.log(
-      'Producer connected',
-    );
+    console.log('Producer connected',);
   }
 
-  async publish(
-    topic: string,
-    message: unknown,
-  ) {
+  async publish(topic: string,message: unknown,) {
 
-    console.log(
-      `Publishing event to ${topic}`,
-    );
+    console.log(`Publishing event to ${topic}`,);
 
     await this.producer.send({
       topic,
@@ -66,8 +55,6 @@ implements OnModuleInit {
       ],
     });
 
-    console.log(
-      'Event published successfully',
-    );
+    console.log('Event published successfully',);
   }
 }
