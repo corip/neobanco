@@ -1,4 +1,4 @@
-# Card Issuance Event-Driven Architecture
+# Solución emisión de tarjetas
 
 Proyecto desarrollado con una arquitectura orientada a eventos utilizando Node.js, NestJS, Kafka y PostgreSQL.
 
